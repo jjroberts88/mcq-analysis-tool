@@ -36,6 +36,14 @@ def load_csv_files(directory):
             csv_files.append(file.name)
     return csv_files
 
+def load_pdf(filename):
+    """Load PDF file from data directory"""
+    try:
+        pdf_path = Path(__file__).parent / "data" / filename
+        return pdf_path.read_bytes()
+    except Exception as e:
+        return b"Error loading PDF"
+
 def call_openai_api(prompt):
     """Call OpenAI API with the generated prompt"""
     try:
@@ -239,16 +247,30 @@ st.sidebar.markdown("""
 Welcome to the Medical School's MCQ Analysis and Learning Support Tool. This application helps you review your exam performance and creates personalised study recommendations using the medical school's comprehensive learning resources.
 
 **Getting Started:**
-1. Download a copy of your completed exam for reference:
+1. To download a copy of the exam use the links below:
 """)
 
-# Add download button for exam PDF
-st.sidebar.download_button(
-    label="📄 Download Exam PDF",
-    data=b"Placeholder for exam PDF",  # Replace with actual PDF data
-    file_name="medical_exam.pdf",
-    mime="application/pdf"
-)
+# Add download buttons for both exam PDFs
+exam_pdf = load_pdf("Practice-paper-1.pdf")
+answers_pdf = load_pdf("Practice-paper-1-answers.pdf")
+
+col1, col2 = st.sidebar.columns(2)
+
+with col1:
+    st.download_button(
+        label="📄 Exam Paper",
+        data=exam_pdf,
+        file_name="Practice-paper-1.pdf",
+        mime="application/pdf"
+    )
+
+with col2:
+    st.download_button(
+        label="📄 With Answers",
+        data=answers_pdf,
+        file_name="Practice-paper-1-answers.pdf",
+        mime="application/pdf"
+    )
 
 st.sidebar.markdown("""
 2. Select your answer sheet from the dropdown menu
