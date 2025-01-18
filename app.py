@@ -8,6 +8,28 @@ import json
 # Custom styling
 st.markdown("""
     <style>
+    /* Global background color */
+    .stApp {
+        background-color: #fbfaf8 !important;
+    }
+
+    /* Main content container */
+    .main .block-container {
+        background-color: #fbfaf8 !important;
+    }
+
+    /* Ensure background color on mobile */
+    @media (max-width: 768px) {
+        .main .block-container {
+            background-color: #fbfaf8 !important;
+            padding: 1rem !important;
+        }
+        
+        .stApp {
+            background-color: #fbfaf8 !important;
+        }
+    }
+
     /* Make the title more prominent */
     .title {
         font-size: 42px !important;
