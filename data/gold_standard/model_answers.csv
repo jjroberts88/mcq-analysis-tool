@@ -1,0 +1,101 @@
+question_number, answer_correct, topic, subtopic
+1,E,Urology,Urethral Stricture
+2,C,Cardiology,Aortic Stenosis
+3,A,Neurology,Myasthenia Gravis
+4,C,Respiratory Medicine,Idiopathic Pulmonary Fibrosis (IPF)
+5,C,Neurology/Orthopedics,L5 Radiculopathy/Sciatica
+6,E,Cardiology/Hematology,Anticoagulation Management/Warfarin Overdose
+7,D,Gastroenterology,Acute Pancreatitis
+8,A,Endocrinology,Diabetic Ketoacidosis (DKA)
+9,C,Nephrology/Emergency Medicine,Acute Kidney Injury (AKI)/Hypovolemia
+10,B,Infectious Diseases/Gastroenterology,Cryptosporidiosis
+11,E,Neurology,Hypoglossal Nerve Palsy
+12,B,Neurology,Migraine with Aura
+13,D,Ophthalmology,Acute Angle-Closure Glaucoma
+14,D,Neurology/Hematology,Subacute Combined Degeneration of the Cord/Vitamin B12 Deficiency
+15,B,Dermatology,Urticaria
+16,E,Ophthalmology/Neurology,Retrobulbar Optic Neuritis
+17,A,Ophthalmology,Herpes Zoster Ophthalmicus
+18,B,Rheumatology/Pharmacology,Methotrexate Toxicity/Folic Acid Supplementation
+19,B,Neurology,Motor Neurone Disease (MND)
+20,B,Nephrology/Rheumatology,Nephrotic Syndrome
+21,A,Dermatology,Bowen's Disease
+22,B,Endocrinology,Postpartum Thyroiditis/Hyperthyroidism
+23,A,Vascular Surgery/Dermatology,Arterial Ulcer/Peripheral Arterial Disease
+24,C,Psychiatry/Geriatrics,Delirium
+25,D,Nephrology/Radiology/Endocrinology,Contrast-Induced Nephropathy/Metformin
+26,D,Urology/Oncology,Renal Cancer
+27,D,Endocrinology/Nephrology,Hyperglycemia/Hyperosmolarity
+28,B,Nephrology/Post-operative Care,Renal Transplant Complications/Hypovolemia
+29,A,Neurology,Trigeminal Neuralgia
+30,B,Neurology,Parkinson's Disease
+31,E,Infectious Diseases/Pharmacology,MRSA Infection/Antibiotic Therapy
+32,E,Hematology/Neurology,Coagulopathy/Intracranial Hemorrhage
+33,E,Gastroenterology/Oncology,Pancreatic Adenocarcinoma
+34,A,Cardiology/Nephrology,Hypertension/Albuminuria
+35,D,Cardiology,Heart Failure
+36,C,Ophthalmology,Central Retinal Artery Occlusion
+37,D,Sleep Medicine/Geriatrics,Age-Related Sleep Changes
+38,A,Ophthalmology,Scleritis
+39,A,Toxicology/Respiratory Medicine,Carbon Monoxide Poisoning
+40,B,Endocrinology/Neurology,Diabetic Neuropathy
+41,B,Gastroenterology,Coeliac Disease
+42,B,Infectious Diseases/Gastroenterology,Clostridioides difficile Infection
+43,A,Respiratory Medicine,Bronchiectasis
+44,D,Gastroenterology,Biliary Colic/Cholelithiasis
+45,C,Endocrinology/Geriatrics,Hypoglycemia
+46,D,Respiratory Medicine/Oncology,Malignant Pleural Mesothelioma
+47,C,Gastroenterology,Diverticulitis
+48,E,Toxicology/Gastroenterology,Paracetamol Overdose/Liver Failure
+49,C,Cardiology,Premature Ventricular Contractions
+50,A,Urology,Hydrocele
+51,B,Dermatology/Oncology,Basal Cell Carcinoma
+52,C,Urology/Infectious Diseases,Catheter-Associated Urinary Tract Infection (CAUTI)
+53,A,Cardiology,Atrial Fibrillation
+54,D,Nephrology,Polycystic Kidney Disease (PKD)
+55,A,Neurology,Headache/Subarachnoid Hemorrhage (SAH)
+56,A,Cardiology/Congenital Disorders,Coarctation of the Aorta
+57,B,Respiratory Medicine/Rheumatology,Granulomatosis with Polyangiitis (GPA)
+58,A,Infectious Diseases,Infectious Mononucleosis (Glandular Fever)
+59,A,Gastroenterology,Crohn's Ileitis
+60,A,Pharmacology/Respiratory Medicine,Tuberculosis Treatment/Ethambutol Toxicity
+61,E,Dermatology/Pharmacology,Acne/Lymecycline
+62,C,Endocrinology,Primary Hyperparathyroidism
+63,E,Urology/Vascular Surgery,Erectile Dysfunction/Vascular Insufficiency
+64,E,Gastroenterology,Primary Sclerosing Cholangitis
+65,E,Nephrology/Pharmacology,Chronic Kidney Disease (CKD)/Hyperkalemia
+66,D,Vascular Surgery/Radiology,Abdominal Aortic Aneurysm (AAA) Screening
+67,D,Respiratory Medicine/Pharmacology,Inhaled Corticosteroids/Oral Candidiasis
+68,A,Respiratory Medicine/Infectious Diseases,Parapneumonic Effusion/Empyema
+69,D,Respiratory Medicine/Endocrinology,Sarcoidosis/Hypercalcemia
+70,A,Urology/Oncology,Bladder Cancer/Hematuria
+71,B,Community Medicine/Nursing,Pressure Ulcer Prevention/Assessment
+72,A,Infectious Diseases/Occupational Health,Needlestick Injury/Post-Exposure Management
+73,B,Cardiology/Infectious Diseases,Infective Endocarditis/S. aureus
+74,B,Neurology/Hematology,Stroke/Antiphospholipid Syndrome
+75,B,Respiratory Medicine/Sleep Medicine,Obstructive Sleep Apnea (OSA)
+76,A,Gastroenterology/Oncology,Colorectal Cancer
+77,E,Urology/Oncology,Testicular Teratoma
+78,B,Respiratory Medicine/Pharmacology,COPD Management
+79,E,Geriatrics/Pharmacology,Falls/Zolpidem
+80,D,Nutrition/Dermatology,Vitamin C Deficiency/Scurvy
+81,E,Endocrinology,Hypogonadism/Pituitary Adenoma
+82,D,Respiratory Medicine,Asthma Management/Action Plan
+83,D,Cardiology,Post-MI Complications/Papillary Muscle Rupture
+84,D,Neurology/Endocrinology,Visual Field Defect/Pituitary Adenoma
+85,C,Dermatology/Infectious Diseases,Impetigo/Staphylococcus aureus
+86,C,Endocrinology/Bariatric Surgery,Obesity Management/Bariatric Surgery
+87,E,Neurology,Syncope/Vasovagal Syncope
+88,C,Respiratory Medicine/Oncology,Pleural Effusion/Lung Cancer
+89,B,Vascular Surgery,Peripheral Arterial Disease/Aorto-bifemoral Bypass
+90,A,Cardiology/Pharmacology,Hypertension Treatment/Amlodipine Side Effect
+91,A,Urology/Infectious Diseases,Catheter-Associated Bacteriuria/Asymptomatic Bacteriuria
+92,C,Infectious Diseases,HIV Infection
+93,E,Cardiology,Mitral Stenosis
+94,E,Infectious Diseases/Neurology,Pneumonia/Meningitis/Streptococcus pneumoniae
+95,A,Cardiology/Pathology,Coronary Artery Disease/Atheroma
+96,A,Genetics,Cystic Fibrosis/Carrier Status
+97,E,Neurology/Geriatrics,Dementia/Short-Term Memory Impairment
+98,D,Urology/Neurology,Neuropathic Bladder/Intermittent Self-Catheterization
+99,E,Gastroenterology,Cholecystitis/Abdominal Ultrasound
+100,D,Infectious Diseases/Microbiology,Clostridioides difficile/Spore Formation
