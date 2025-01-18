@@ -92,14 +92,25 @@ st.markdown("""
         border: 1px solid #27bec2 !important;
     }
 
-    /* Style the expander text */
-    .streamlit-expanderHeader span {
+    /* Style the expander text specifically */
+    .streamlit-expanderHeader p {
+        color: #03707d !important;
+        font-weight: 500 !important;
+        font-size: 1.1rem !important;
+    }
+
+    button.streamlit-expanderHeader {
         color: #03707d !important;
         font-weight: 500 !important;
     }
 
     /* Style the expander icon */
     .streamlit-expanderHeader svg {
+        color: #03707d !important;
+    }
+    
+    /* Target the label text directly */
+    .streamlit-expanderHeader div[data-testid="stExpander"] {
         color: #03707d !important;
     }
 
