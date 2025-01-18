@@ -118,10 +118,15 @@ Topics for Review:
             'correct_answers': correct_answers
         }
         
+        # Store the analysis result in session state
+        st.session_state['analysis_result'] = analysis_result
+        
         return analysis_result
     
     except Exception as e:
-        return f"Error during analysis: {str(e)}\nPlease check your CSV files match these formats:\n\nStudent CSV:\nquestion_number,answer_student\n1,A\n2,B\n\nModel Answers CSV:\nquestion_number,answer_correct,topic,subtopic\n1,E,Urology,Urethral Stricture"
+        error_message = f"Error during analysis: {str(e)}\nPlease check your CSV files match these formats:\n\nStudent CSV:\nquestion_number,answer_student\n1,A\n2,B\n\nModel Answers CSV:\nquestion_number,answer_correct,topic,subtopic\n1,E,Urology,Urethral Stricture"
+        st.session_state['analysis_result'] = error_message
+        return error_message
 
 def generate_feedback(analysis_result):
     """Generate LLM prompt and get OpenAI response"""
@@ -202,9 +207,13 @@ st.header("Analysis")
 if st.button("Analyze"):
     if selected_input and selected_gold:
         analysis_result = analyze_mcq_answers(selected_input, selected_gold)
-        st.text_area("Analysis Results", analysis_result, height=300)
+        st.session_state['analysis_result'] = analysis_result
     else:
         st.error("Please select both student answers and model answers files")
+
+# Display analysis results if they exist in session state
+if 'analysis_result' in st.session_state:
+    st.text_area("Analysis Results", st.session_state['analysis_result'], height=300)
 
 # Generation section
 st.header("AI Feedback Generation")
