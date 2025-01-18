@@ -59,6 +59,13 @@ st.markdown("""
         border-radius: 6px !important;
         border-color: #27bec2 !important;
         background-color: #fbfaf8 !important;
+        color: #03707d !important;
+    }
+    
+    /* Style for text selection in text areas */
+    .stTextArea textarea::selection {
+        background-color: #a7e7e1 !important;
+        color: #03707d !important;
     }
 
     /* Style the selectboxes for better readability */
