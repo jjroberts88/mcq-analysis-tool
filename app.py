@@ -55,8 +55,8 @@ def call_openai_api(prompt):
     except Exception as e:
         return f"Error calling OpenAI API: {str(e)}"
 
-def analyze_mcq_answers(input_file, gold_standard_file):
-    """Analyze multiple choice answers against the gold standard"""
+def analyse_mcq_answers(input_file, gold_standard_file):
+    """Analyse multiple choice answers against the gold standard"""
     try:
         # Load the files
         input_path = input_dir / input_file
@@ -155,7 +155,7 @@ Provide a supportive and constructive revision plan for the student to assist in
 input_dir, gold_dir = setup_directories()
 
 # Main app interface
-st.title("MCQ Answer Analysis Tool")
+st.title("Medical MCQ Performance & Study Tool")
 
 # Check for OpenAI API configuration
 if not setup_openai():
@@ -204,9 +204,9 @@ with col4:
 
 # Analysis section
 st.header("Analysis")
-if st.button("Analyze"):
+if st.button("Analyse"):
     if selected_input and selected_gold:
-        analysis_result = analyze_mcq_answers(selected_input, selected_gold)
+        analysis_result = analyse_mcq_answers(selected_input, selected_gold)
         st.session_state['analysis_result'] = analysis_result
     else:
         st.error("Please select both student answers and model answers files")
@@ -219,38 +219,43 @@ if 'analysis_result' in st.session_state:
 st.header("AI Feedback Generation")
 if st.button("Generate Feedback"):
     if 'detailed_results' in st.session_state:
-        with st.spinner('Generating personalized feedback...'):
+        with st.spinner('Generating personalised feedback...'):
             prompt, ai_response = generate_feedback(None)
             
             # Create tabs for viewing both prompt and response
             tab1, tab2 = st.tabs(["AI Response", "Generated Prompt"])
             
             with tab1:
-                st.text_area("Personalized Feedback", ai_response, height=400)
+                st.text_area("Personalised Feedback", ai_response, height=400)
             
             with tab2:
                 st.text_area("LLM Prompt", prompt, height=300)
     else:
         st.warning("Please run analysis first")
 
-# Add file format instructions
-st.sidebar.header("File Format Guide")
-st.sidebar.write("""
-Student Answers CSV format:
-```
-question_number,answer_student
-1,A
-2,C
-3,B
-```
+# Add welcome message and instructions in sidebar
+st.sidebar.header("Medical MCQ Performance & Study Tool")
+st.sidebar.markdown("""
+Welcome to the Medical School's MCQ Analysis and Learning Support Tool. This application helps you review your exam performance and creates personalised study recommendations using the medical school's comprehensive learning resources.
 
-Model Answers CSV format:
-```
-question_number,answer_correct,topic,subtopic
-1,E,Urology,Urethral Stricture
-2,C,Cardiology,Aortic Stenosis
-```
+**Getting Started:**
+1. Download a copy of your completed exam for reference:
 """)
 
+# Add download button for exam PDF
+st.sidebar.download_button(
+    label="📄 Download Exam PDF",
+    data=b"Placeholder for exam PDF",  # Replace with actual PDF data
+    file_name="medical_exam.pdf",
+    mime="application/pdf"
+)
+
+st.sidebar.markdown("""
+2. Select your answer sheet from the dropdown menu
+3. Click 'Analyse' to see your performance summary
+4. Use 'Generate Feedback' to receive a personalised learning plan with links to relevant medical school resources
+
+Our AI-powered system will analyse your answers and create targeted recommendations based on the medical school's lecture materials, clinical cases, and study resources.""")
+
 st.markdown("---")
-st.markdown("*MCQ Analysis Tool v2.0*")
+st.markdown("*Medical MCQ Performance & Study Tool v2.0*")
