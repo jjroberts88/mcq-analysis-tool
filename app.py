@@ -316,7 +316,7 @@ with col4:
     )
 
 # Analysis section
-st.markdown('<p class="section-header">Analysis</p>', unsafe_allow_html=True)
+st.markdown('<p class="section-header">Performance Summary</p>', unsafe_allow_html=True)
 if st.button("Analyse"):
     if selected_input and selected_gold:
         analysis_result = analyse_mcq_answers(selected_input, selected_gold)
