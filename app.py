@@ -12,7 +12,7 @@ st.markdown("""
     .title {
         font-size: 42px !important;
         font-weight: 600 !important;
-        color: #FF4B4B !important;
+        color: #03707d !important;
         padding-bottom: 1rem !important;
     }
     
@@ -21,13 +21,13 @@ st.markdown("""
         padding-top: 1rem !important;
         font-size: 24px !important;
         font-weight: 500 !important;
-        color: #1E88E5 !important;
+        color: #27bec2 !important;
     }
     
     /* Style the buttons */
     .stButton>button {
-        background-color: #FF4B4B !important;
-        color: white !important;
+        background-color: #03707d !important;
+        color: #fbfaf8 !important;
         border-radius: 6px !important;
         padding: 0.5rem 1rem !important;
         border: none !important;
@@ -35,40 +35,75 @@ st.markdown("""
     }
     
     .stButton>button:hover {
-        background-color: #E53E3E !important;
+        background-color: #27bec2 !important;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
     }
     
     /* Style download buttons in sidebar differently */
     .sidebar .stButton>button {
-        background-color: #1E88E5 !important;
+        background-color: #27bec2 !important;
     }
     
     .sidebar .stButton>button:hover {
-        background-color: #1976D2 !important;
+        background-color: #03707d !important;
     }
     
     /* Add some spacing and style to the expandable sections */
     .streamlit-expanderHeader {
-        background-color: #F0F2F6 !important;
+        background-color: #a7e7e1 !important;
         border-radius: 6px !important;
     }
 
     /* Style the text areas */
     .stTextArea textarea {
         border-radius: 6px !important;
-        border-color: #E2E8F0 !important;
+        border-color: #27bec2 !important;
+        background-color: #fbfaf8 !important;
     }
 
-    /* Style the selectboxes */
+    /* Style the selectboxes for better readability */
     .stSelectbox > div > div {
-        background-color: white !important;
+        background-color: #fbfaf8 !important;
         border-radius: 6px !important;
+        color: #03707d !important;
+        border-color: #27bec2 !important;
+    }
+
+    .stSelectbox > div > div > div {
+        color: #03707d !important;
+    }
+
+    /* Style the dropdown options */
+    .stSelectbox div[data-baseweb="select"] > div {
+        background-color: #fbfaf8 !important;
+        color: #03707d !important;
     }
 
     /* Add some padding to the sidebar */
     .sidebar .block-container {
         padding: 2rem 1rem !important;
+        background-color: #e8e6e4 !important;
+    }
+
+    /* Success message styling */
+    .element-container .stSuccess {
+        background-color: #a7e7e1 !important;
+        color: #03707d !important;
+        border-color: #27bec2 !important;
+    }
+
+    /* Warning message styling */
+    .element-container .stWarning {
+        background-color: #fbfaf8 !important;
+        color: #03707d !important;
+        border-color: #27bec2 !important;
+    }
+
+    /* Error message styling */
+    .element-container .stError {
+        background-color: #fbfaf8 !important;
+        color: #03707d !important;
+        border-color: #27bec2 !important;
     }
     </style>
 """, unsafe_allow_html=True)
