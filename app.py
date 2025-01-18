@@ -85,18 +85,23 @@ st.markdown("""
         background-color: #03707d !important;
     }
     
-    /* Style for expandable sections */
+    /* Style for expandable sections and specifically target the label */
     .streamlit-expanderHeader {
         background-color: #ffffff !important;
         border-radius: 6px !important;
         border: 1px solid #27bec2 !important;
     }
 
-    /* Target the specific text label in the expander header */
-    div[data-testid="stExpander"] > div > div > div > div > div {
+    /* Target the expander label and force color */
+    .streamlit-expanderHeader label {
         color: #03707d !important;
         font-weight: 600 !important;
         font-size: 16px !important;
+    }
+
+    /* Handle hover state */
+    .streamlit-expanderHeader:hover label {
+        color: #27bec2 !important;
     }
 
     /* Style the text areas */
