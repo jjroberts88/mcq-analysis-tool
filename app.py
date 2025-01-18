@@ -85,33 +85,18 @@ st.markdown("""
         background-color: #03707d !important;
     }
     
-    /* Add some spacing and style to the expandable sections */
+    /* Style for expandable sections */
     .streamlit-expanderHeader {
         background-color: #ffffff !important;
         border-radius: 6px !important;
         border: 1px solid #27bec2 !important;
     }
 
-    /* Style the expander text specifically */
-    .streamlit-expanderHeader p {
+    /* Target the specific text label in the expander header */
+    div[data-testid="stExpander"] > div > div > div > div > div {
         color: #03707d !important;
-        font-weight: 500 !important;
-        font-size: 1.1rem !important;
-    }
-
-    button.streamlit-expanderHeader {
-        color: #03707d !important;
-        font-weight: 500 !important;
-    }
-
-    /* Style the expander icon */
-    .streamlit-expanderHeader svg {
-        color: #03707d !important;
-    }
-    
-    /* Target the label text directly */
-    .streamlit-expanderHeader div[data-testid="stExpander"] {
-        color: #03707d !important;
+        font-weight: 600 !important;
+        font-size: 16px !important;
     }
 
     /* Style the text areas */
