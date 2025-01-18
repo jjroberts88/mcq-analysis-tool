@@ -92,6 +92,17 @@ st.markdown("""
         border: 1px solid #27bec2 !important;
     }
 
+    /* Style the expander text */
+    .streamlit-expanderHeader span {
+        color: #03707d !important;
+        font-weight: 500 !important;
+    }
+
+    /* Style the expander icon */
+    .streamlit-expanderHeader svg {
+        color: #03707d !important;
+    }
+
     /* Style the text areas */
     .stTextArea textarea {
         border-radius: 6px !important;
