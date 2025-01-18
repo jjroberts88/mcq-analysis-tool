@@ -1,7 +1,9 @@
-[theme]
-primaryColor = "#FF4B4B"
-backgroundColor = "#FFFFFF"
-secondaryBackgroundColor = "#F0F2F6"
-textColor = "#262730"
+[
+theme
+]
+primaryColor = "#03707d"  # Dark teal
+backgroundColor = "#fbfaf8"  # Off-white
+secondaryBackgroundColor = "#e8e6e4"  # Light gray
+textColor = "#03707d"  # Dark teal for text
 font = "sans serif"
 base = "light"
