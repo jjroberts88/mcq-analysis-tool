@@ -5,10 +5,77 @@ from pathlib import Path
 from openai import OpenAI
 import json
 
+# Custom styling
+st.markdown("""
+    <style>
+    /* Make the title more prominent */
+    .title {
+        font-size: 42px !important;
+        font-weight: 600 !important;
+        color: #FF4B4B !important;
+        padding-bottom: 1rem !important;
+    }
+    
+    /* Style the header sections */
+    .section-header {
+        padding-top: 1rem !important;
+        font-size: 24px !important;
+        font-weight: 500 !important;
+        color: #1E88E5 !important;
+    }
+    
+    /* Style the buttons */
+    .stButton>button {
+        background-color: #FF4B4B !important;
+        color: white !important;
+        border-radius: 6px !important;
+        padding: 0.5rem 1rem !important;
+        border: none !important;
+        transition: all 0.2s !important;
+    }
+    
+    .stButton>button:hover {
+        background-color: #E53E3E !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    }
+    
+    /* Style download buttons in sidebar differently */
+    .sidebar .stButton>button {
+        background-color: #1E88E5 !important;
+    }
+    
+    .sidebar .stButton>button:hover {
+        background-color: #1976D2 !important;
+    }
+    
+    /* Add some spacing and style to the expandable sections */
+    .streamlit-expanderHeader {
+        background-color: #F0F2F6 !important;
+        border-radius: 6px !important;
+    }
+
+    /* Style the text areas */
+    .stTextArea textarea {
+        border-radius: 6px !important;
+        border-color: #E2E8F0 !important;
+    }
+
+    /* Style the selectboxes */
+    .stSelectbox > div > div {
+        background-color: white !important;
+        border-radius: 6px !important;
+    }
+
+    /* Add some padding to the sidebar */
+    .sidebar .block-container {
+        padding: 2rem 1rem !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 def setup_openai():
     """Configure OpenAI API using Streamlit secrets"""
     try:
-        # Get API key from secrets
         api_key = st.secrets["OPENAI_API_KEY"]
         st.session_state['OPENAI_API_KEY'] = api_key
         return True
@@ -116,17 +183,15 @@ Topics for Review:
             analysis_result += f"\n• {topic}"
             for subtopic in sorted(grouped_topics[topic]):
                 analysis_result += f"\n  - {subtopic}"
-            analysis_result += "\n"  # Add extra line between main topics
+            analysis_result += "\n"
         
-        # Store detailed results for generation step
+        # Store detailed results and analysis result in session state
         st.session_state['detailed_results'] = {
             'score': score_percentage,
             'grouped_topics': grouped_topics,
             'total_questions': total_questions,
             'correct_answers': correct_answers
         }
-        
-        # Store the analysis result in session state
         st.session_state['analysis_result'] = analysis_result
         
         return analysis_result
@@ -143,14 +208,12 @@ def generate_feedback(analysis_result):
     
     results = st.session_state['detailed_results']
     
-    # Extract topics and subtopics section from the analysis results
     topics_text = "Topics for Review:\n"
     for topic in sorted(results['grouped_topics'].keys()):
         topics_text += f"\n• {topic}"
         for subtopic in sorted(results['grouped_topics'][topic]):
             topics_text += f"\n  - {subtopic}"
 
-    # Construct the LLM prompt
     prompt = f"""The following is a list of subjects and subtopics that a medical student has answered incorrectly in a recent exam.
 
 {topics_text}
@@ -162,8 +225,8 @@ Provide a supportive and constructive revision plan for the student to assist in
 # Set up directories
 input_dir, gold_dir = setup_directories()
 
-# Main app interface
-st.title("Medical MCQ Performance & Study Tool")
+# Main app interface with styled title
+st.markdown('<p class="title">Medical MCQ Performance & Study Tool</p>', unsafe_allow_html=True)
 
 # Check for OpenAI API configuration
 if not setup_openai():
@@ -175,7 +238,7 @@ with st.expander("Upload New Files", expanded=False):
     col1, col2 = st.columns(2)
     
     with col1:
-        st.subheader("Upload Student Answers")
+        st.markdown('<p class="section-header">Upload Student Answers</p>', unsafe_allow_html=True)
         input_upload = st.file_uploader("Upload student answers CSV", type=['csv'], key="input_upload")
         if input_upload:
             with open(os.path.join(input_dir, input_upload.name), "wb") as f:
@@ -183,7 +246,7 @@ with st.expander("Upload New Files", expanded=False):
             st.success(f"Saved {input_upload.name}")
 
     with col2:
-        st.subheader("Upload Model Answers")
+        st.markdown('<p class="section-header">Upload Model Answers</p>', unsafe_allow_html=True)
         gold_upload = st.file_uploader("Upload model answers CSV", type=['csv'], key="gold_upload")
         if gold_upload:
             with open(os.path.join(gold_dir, gold_upload.name), "wb") as f:
@@ -191,7 +254,7 @@ with st.expander("Upload New Files", expanded=False):
             st.success(f"Saved {gold_upload.name}")
 
 # File selection section
-st.header("File Selection")
+st.markdown('<p class="section-header">File Selection</p>', unsafe_allow_html=True)
 col3, col4 = st.columns(2)
 
 with col3:
@@ -211,7 +274,7 @@ with col4:
     )
 
 # Analysis section
-st.header("Analysis")
+st.markdown('<p class="section-header">Analysis</p>', unsafe_allow_html=True)
 if st.button("Analyse"):
     if selected_input and selected_gold:
         analysis_result = analyse_mcq_answers(selected_input, selected_gold)
@@ -224,13 +287,12 @@ if 'analysis_result' in st.session_state:
     st.text_area("Analysis Results", st.session_state['analysis_result'], height=300)
 
 # Generation section
-st.header("AI Feedback Generation")
+st.markdown('<p class="section-header">AI Feedback Generation</p>', unsafe_allow_html=True)
 if st.button("Generate Feedback"):
     if 'detailed_results' in st.session_state:
         with st.spinner('Generating personalised feedback...'):
             prompt, ai_response = generate_feedback(None)
             
-            # Create tabs for viewing both prompt and response
             tab1, tab2 = st.tabs(["AI Response", "Generated Prompt"])
             
             with tab1:
@@ -241,8 +303,8 @@ if st.button("Generate Feedback"):
     else:
         st.warning("Please run analysis first")
 
-# Add welcome message and instructions in sidebar
-st.sidebar.header("Medical MCQ Performance & Study Tool")
+# Sidebar content
+st.sidebar.markdown('<p class="section-header">Medical MCQ Performance & Study Tool</p>', unsafe_allow_html=True)
 st.sidebar.markdown("""
 Welcome to the Medical School's MCQ Analysis and Learning Support Tool. This application helps you review your exam performance and creates personalised study recommendations using the medical school's comprehensive learning resources.
 
