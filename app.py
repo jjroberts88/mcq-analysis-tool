@@ -5,28 +5,29 @@ from pathlib import Path
 from openai import OpenAI
 import json
 
+
 # Custom styling
 st.markdown("""
     <style>
     /* Global background color */
     .stApp {
-        background-color: #fbfaf8 !important;
+        background-color: #f0f7f7 !important;
     }
 
     /* Main content container */
     .main .block-container {
-        background-color: #fbfaf8 !important;
+        background-color: #f0f7f7 !important;
     }
 
     /* Ensure background color on mobile */
     @media (max-width: 768px) {
         .main .block-container {
-            background-color: #fbfaf8 !important;
+            background-color: #f0f7f7 !important;
             padding: 1rem !important;
         }
         
         .stApp {
-            background-color: #fbfaf8 !important;
+            background-color: #f0f7f7 !important;
         }
     }
 
@@ -36,6 +37,7 @@ st.markdown("""
         font-weight: 600 !important;
         color: #03707d !important;
         padding-bottom: 1rem !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1) !important;
     }
     
     /* Style the header sections */
@@ -43,13 +45,13 @@ st.markdown("""
         padding-top: 1rem !important;
         font-size: 24px !important;
         font-weight: 500 !important;
-        color: #27bec2 !important;
+        color: #03707d !important;
     }
     
     /* Style the buttons */
     .stButton>button {
         background-color: #03707d !important;
-        color: #fbfaf8 !important;
+        color: white !important;
         border-radius: 6px !important;
         padding: 0.5rem 1rem !important;
         border: none !important;
@@ -59,6 +61,19 @@ st.markdown("""
     .stButton>button:hover {
         background-color: #27bec2 !important;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    }
+
+    /* Style the upload box */
+    .uploadedFile {
+        background-color: #ffffff !important;
+        border: 2px dashed #27bec2 !important;
+        border-radius: 6px !important;
+        padding: 1rem !important;
+        margin: 0.5rem 0 !important;
+    }
+
+    .stUploadedFileMsg {
+        color: #03707d !important;
     }
     
     /* Style download buttons in sidebar differently */
@@ -72,15 +87,16 @@ st.markdown("""
     
     /* Add some spacing and style to the expandable sections */
     .streamlit-expanderHeader {
-        background-color: #a7e7e1 !important;
+        background-color: #ffffff !important;
         border-radius: 6px !important;
+        border: 1px solid #27bec2 !important;
     }
 
     /* Style the text areas */
     .stTextArea textarea {
         border-radius: 6px !important;
         border-color: #27bec2 !important;
-        background-color: #fbfaf8 !important;
+        background-color: #ffffff !important;
         color: #03707d !important;
     }
     
@@ -92,7 +108,7 @@ st.markdown("""
 
     /* Style the selectboxes for better readability */
     .stSelectbox > div > div {
-        background-color: #fbfaf8 !important;
+        background-color: #ffffff !important;
         border-radius: 6px !important;
         color: #03707d !important;
         border-color: #27bec2 !important;
@@ -104,8 +120,16 @@ st.markdown("""
 
     /* Style the dropdown options */
     .stSelectbox div[data-baseweb="select"] > div {
-        background-color: #fbfaf8 !important;
+        background-color: #ffffff !important;
         color: #03707d !important;
+    }
+
+    /* File uploader styling */
+    .stFileUploader {
+        background-color: #ffffff !important;
+        padding: 1rem !important;
+        border-radius: 6px !important;
+        border: 2px dashed #27bec2 !important;
     }
 
     /* Add some padding to the sidebar */
@@ -123,14 +147,14 @@ st.markdown("""
 
     /* Warning message styling */
     .element-container .stWarning {
-        background-color: #fbfaf8 !important;
+        background-color: #ffffff !important;
         color: #03707d !important;
         border-color: #27bec2 !important;
     }
 
     /* Error message styling */
     .element-container .stError {
-        background-color: #fbfaf8 !important;
+        background-color: #ffffff !important;
         color: #03707d !important;
         border-color: #27bec2 !important;
     }
