@@ -1,11 +1,11 @@
 question_number,answer_student
-1,E
-2,C
+1,A
+2,B
 3,A
 4,C
 5,C
 6,E
-7,D
+7,A
 8,A
 9,C
 10,B
@@ -35,7 +35,7 @@ question_number,answer_student
 34,A
 35,D
 36,C
-37,D
+37,E
 38,A
 39,A
 40,B
@@ -47,7 +47,7 @@ question_number,answer_student
 46,D
 47,C
 48,E
-49,C
+49,B
 50,A
 51,B
 52,C
@@ -65,8 +65,8 @@ question_number,answer_student
 64,E
 65,E
 66,D
-67,D
-68,A
+67,B
+68,E
 69,D
 70,A
 71,B
@@ -78,7 +78,7 @@ question_number,answer_student
 77,E
 78,B
 79,E
-80,B
+80,C
 81,C
 82,A
 83,E
