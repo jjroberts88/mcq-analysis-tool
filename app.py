@@ -217,7 +217,7 @@ def call_openai_api(prompt):
         client = OpenAI(api_key=st.session_state['OPENAI_API_KEY'])
         
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="chatgpt-4o-latest",
             messages=[
                 {"role": "system", "content": "You are a medical education assistant helping students review and learn from their exam results. Provide constructive, supportive feedback and specific recommendations."},
                 {"role": "user", "content": prompt}
